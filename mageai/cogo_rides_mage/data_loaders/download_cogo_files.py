@@ -16,6 +16,7 @@ def load_data_from_api(*args, **kwargs):
     Template for loading data from API
     """
     URL_PREFIX = "https://cogo-sys-data.s3.amazonaws.com"
+    count = 0
     for year in range(2018,2025):
         year = str(year).zfill(2)
         for month in range(1,13):
@@ -25,16 +26,15 @@ def load_data_from_api(*args, **kwargs):
             r = requests.get(URL)
             directory = f"data/raw/{year}/{month}/"
             if r.status_code == 200:
+                count += 1
                 os.makedirs(os.path.dirname(directory), exist_ok=True)
                 print(f"Downloading {fname}")
-                with open(f"{directory}/{fname}",'wb+') as file:
-                    file.write(r.content)
+                myzip = ZipFile(io.BytesIO(r.content))
+                for file in myzip.infolist():
+                    if "MACOSX" not in file.filename:
+                        filename = file.filename
+                        break
+                print(f"Extracting {filename}")
+                myzip.extract(f"{filename}",f"{directory}/")
 
-
-
-@test
-def test_output(output, *args) -> None:
-    """
-    Template code for testing the output of the block.
-    """
-    assert output is not None, 'The output is undefined'
+    
