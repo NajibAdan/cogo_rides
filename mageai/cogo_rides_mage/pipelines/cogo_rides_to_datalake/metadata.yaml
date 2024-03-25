@@ -5,7 +5,7 @@ blocks:
     file_source:
       path: data_loaders/download_cogo_files.py
   downstream_blocks:
-  - load_to_pandas
+  - load_to_gcs
   executor_config: null
   executor_type: local_python
   has_callback: false
@@ -20,19 +20,36 @@ blocks:
 - all_upstream_blocks_executed: true
   color: null
   configuration: {}
+  downstream_blocks:
+  - clean_up_files
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: load_to_gcs
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - download_cogo_files
+  uuid: load_to_gcs
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
   downstream_blocks: []
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: load_to_pandas
+  name: clean_up_files
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: custom
   upstream_blocks:
-  - download_cogo_files
-  uuid: load_to_pandas
+  - load_to_gcs
+  uuid: clean_up_files
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}

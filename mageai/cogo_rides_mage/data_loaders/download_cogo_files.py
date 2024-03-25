@@ -24,7 +24,7 @@ def load_data_from_api(*args, **kwargs):
             URL = f"{URL_PREFIX}/{year}{month}-cogo-tripdata.zip"
             fname = URL.split('/')[-1]
             r = requests.get(URL)
-            directory = f"data/raw/{year}/{month}/"
+            directory = f"data/"
             if r.status_code == 200:
                 count += 1
                 os.makedirs(os.path.dirname(directory), exist_ok=True)
