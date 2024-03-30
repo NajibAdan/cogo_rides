@@ -17,7 +17,7 @@ def load_data_from_api(*args, **kwargs):
     """
     URL_PREFIX = "https://cogo-sys-data.s3.amazonaws.com"
     count = 0
-    for year in range(2018,2025):
+    for year in range(2021,2025):
         year = str(year).zfill(2)
         for month in range(1,13):
             month = str(month).zfill(2)
