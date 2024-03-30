@@ -173,3 +173,5 @@ scratch*
 /mage_data*
 *secrets*.json
 your-first-project
+
+dbt-venv
