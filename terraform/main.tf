@@ -15,7 +15,7 @@ provider "google" {
 }
 
 resource "google_storage_bucket" "data_lake" {
-  name          = "${var.project_id}-data_lake"
+  name          = "${var.project_id}_data_lake"
   location      = "US"
   force_destroy = true
   lifecycle_rule {

@@ -20,7 +20,7 @@ def export_data_to_google_cloud_storage(data, **kwargs) -> None:
     config_path = path.join(get_repo_path(), 'io_config.yaml')
     config_profile = 'default'
 
-    bucket_name = 'cogo_rides_data_lake'
+    bucket_name = 'cogo-rides-gcp-data_lake'
     for file in listdir('data/'):
         object_key = file
         df = read_csv(f"data/{file}")
@@ -28,4 +28,5 @@ def export_data_to_google_cloud_storage(data, **kwargs) -> None:
             df,
             bucket_name,
             object_key,
+            index=False
         )

@@ -18,11 +18,11 @@ def delete_files(*args, **kwargs):
         shutil.rmtree(directory)
     except OSError as e:
         print("Error: %s - %s." % (e.filename, e.strerror))
-    return {directory}
+    return directory
 
 
 @test
-def test_output(output, *args) -> None:
+def test_output(directory, *args) -> None:
     """
     Template code for testing the output of the block.
     """

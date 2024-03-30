@@ -56,4 +56,5 @@ help_improve_mage: false
 features:
   add_new_block_v2: true
   compute_management: true
+  display_local_timezone: true
 pipelines:

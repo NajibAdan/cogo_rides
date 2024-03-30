@@ -28,8 +28,8 @@ def transform_custom(*args, **kwargs):
         "start_lng"           : str,
         "end_lat"             : str,
         "end_lng"             : str,
-        "member_casual"       : str,
-        "tripduration"        : str
+        "member_casual"       : str.
+        "trip"
     }
     
     rides = []
