@@ -1,0 +1,17 @@
+version: 2
+sources:
+    - name: dwh
+      database: cogo-rides-gcp 
+      schema: cogo_archive
+      loader: gcloud storage
+      tables:
+        - name: cogo_rides_external_table 
+          external:
+            location: "gs://cogo-rides-gcp_data_lake/*"
+            options:
+              format: csv
+
+models:
+    - name: cg_days
+      description: > 
+        CoGo Rides partitioned by days
