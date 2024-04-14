@@ -28,13 +28,13 @@ blocks:
   language: python
   name: load_to_gcs
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: data_exporter
   upstream_blocks:
   - download_cogo_files
   uuid: load_to_gcs
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: null
   configuration: {}
   downstream_blocks: []
@@ -44,7 +44,7 @@ blocks:
   language: python
   name: clean_up_files
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: custom
   upstream_blocks:
