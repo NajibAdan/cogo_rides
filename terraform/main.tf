@@ -32,3 +32,8 @@ resource "google_bigquery_dataset" "data_warehouse" {
   dataset_id = var.dataset_id
   location = "US"
 }
+
+resource "google_bigquery_dataset" "archive" {
+  dataset_id = "cg_archive"
+  location = "US"
+}
