@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+    - name: staging
+      database: cogo-rides-gcp
+      schema: cogo_staging
+      tables:
+        - name: cogo_trips
+
+models:
+    - name: stg_trips
+      description: Bike trips made in CoGo

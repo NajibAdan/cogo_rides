@@ -1,0 +1,6 @@
+version: 2
+
+models:
+    - name: dim_monthly_trip_length
+      description: >
+        Aggregated table of all bike rides. The table contain montly totals and average of trip duration
