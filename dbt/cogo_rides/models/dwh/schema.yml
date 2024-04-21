@@ -10,6 +10,35 @@ sources:
             location: "gs://cogo-rides-gcp_data_lake/*"
             options:
               format: csv
+              skip_leading_rows: 1
+          columns:
+            - name: ride_id
+              data_type: string
+            - name: rideable_type
+              data_type: string
+            - name: started_at
+              data_type: timestamp
+            - name: ended_at
+              data_type: timestamp
+            - name: start_station_name
+              data_type: string
+            - name: start_station_id
+              data_type: string
+            - name: end_station_name
+              data_type: string
+            - name: end_station_id
+              data_type: string
+            - name: start_lat
+              data_type: float64
+            - name: start_lng
+              data_type: float64
+            - name: end_lat
+              data_type: float64
+            - name: end_lng
+              data_type: float64
+            - name: member_casual
+              data_type: string 
+            
 
 models:
     - name: cg_days
